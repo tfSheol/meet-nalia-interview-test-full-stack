@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkerModule } from 'angular-web-worker/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { AppWorker } from './worker/app.worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,10 +22,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    WorkerModule.forWorkers([
-      { worker: AppWorker, initFn: () => new Worker('./worker/app.worker.ts', { type: 'module' }) }
-    ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatListModule,
+    DragDropModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

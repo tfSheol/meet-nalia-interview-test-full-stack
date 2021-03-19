@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "electron-boilerplate": {
+    "simple-todo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,7 +30,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -75,18 +75,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "electron-boilerplate:build"
+            "browserTarget": "simple-todo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "electron-boilerplate:build:production"
+              "browserTarget": "simple-todo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "electron-boilerplate:build"
+            "browserTarget": "simple-todo:build"
           }
         },
         "test": {
@@ -97,7 +97,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
@@ -126,16 +126,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "electron-boilerplate:serve"
+            "devServerTarget": "simple-todo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "electron-boilerplate:serve:production"
+              "devServerTarget": "simple-todo:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "electron-boilerplate"
+  "defaultProject": "simple-todo"
 }

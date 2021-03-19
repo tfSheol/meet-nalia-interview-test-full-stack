@@ -1,0 +1,19 @@
+main {
+    font-size: 18px;
+    width: auto;
+    min-height: 100%;
+    max-height: max-content;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    // background-color: hsl(220, 98%, 61%);
+}
+
+article {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+section mat-card {
+    margin-bottom: 40px;
+}
