@@ -1,19 +1,105 @@
-main {
-    font-size: 18px;
-    width: auto;
-    min-height: 100%;
-    max-height: max-content;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-    // background-color: hsl(220, 98%, 61%);
+@media (min-width: 347px) and (max-width: 737px) {
+    main {
+        background: url("/assets/background/bg-mobile-light.jpg") no-repeat top;
+    }
+
+    article {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
-article {
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
+@media (min-width: 737px) {
+    main {
+        padding-top: 50px;
+        font-size: 18px;
+        min-height: 100%;
+        max-height: max-content;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        // background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        // background-color: hsl(220, 98%, 61%);
+        background: url("/assets/background/bg-desktop-light.jpg") no-repeat top;
+        /*
+        - Very Light Gray: hsl(0, 0%, 98%)
+        - Very Light Grayish Blue: hsl(236, 33%, 92%)
+        - Light Grayish Blue: hsl(233, 11%, 84%)
+        - Dark Grayish Blue: hsl(236, 9%, 61%)
+        - Very Dark Grayish Blue: hsl(235, 19%, 35%)
+        */
+    }
+
+    .dark-mode {
+        color: hsl(234, 39%, 85%);
+        background: url("/assets/background/bg-desktop-dark.jpg") no-repeat top hsl(235, 21%, 11%);
+        // background-image: url("../../media/examples/lizard.png");
+        /*
+        - Very Dark Blue: hsl(235, 21%, 11%)
+        - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+        - Light Grayish Blue: hsl(234, 39%, 85%)
+        - Light Grayish Blue (hover): hsl(236, 33%, 92%)
+        - Dark Grayish Blue: hsl(234, 11%, 52%)
+        - Very Dark Grayish Blue: hsl(233, 14%, 35%)
+        - Very Dark Grayish Blue: hsl(237, 14%, 26%)
+        */
+    }
+
+    article {
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+    }
 }
 
 section mat-card {
     margin-bottom: 40px;
+}
+
+section .input-create-todo {
+    padding: 0;
+}
+
+section .input-create-todo mat-form-field {
+    width: 100%;
+    margin: 0;
+}
+
+.mat-form-field-wrapper {
+    padding: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.center {
+    text-align: center;
+}
+
+.end {
+    text-align: end;
+}
+
+.mat-pseudo-checkbox {
+    border-radius: 10px !important;
+}
+
+.mat-pseudo-checkbox-checked::after {
+    border-radius: 10px !important;
+}
+
+.mat-list-item-content:current {
+    cursor: move;
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-border {
+    border-bottom: 1px solid red;
+}
+
+.bottom-border:nth-child {
+    height: 500px;
 }

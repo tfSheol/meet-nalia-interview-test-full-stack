@@ -1,0 +1,6 @@
+FROM ghcr.io/tfsheol/custom-nginx-angular:latest
+
+LABEL maintainer="Teddy Fontaine"
+LABEL org.opencontainers.image.source https://github.com/tfSheol/meet-nalia-interview-test-full-stack
+
+COPY dist/ /app

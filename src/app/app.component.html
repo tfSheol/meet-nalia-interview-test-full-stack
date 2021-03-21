@@ -1,38 +1,45 @@
-<main>
+<main [class.dark-mode]="darkMode">
   <article>
     <h1>TODO</h1>
+    <button (click)='switchDarkMode()' mat-button>Dark mode</button>
     <section>
       <mat-card class="input-create-todo">
         <mat-card-content>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" floatLabel="never">
             <mat-label>Create a new todo...</mat-label>
-            <input matInput #reference (keydown.enter)="addNewTodo(reference)">
+            <input matInput #reference formControlName="inputTodoFormControl" (keydown.enter)="addNewTodo(reference)"
+              [disabled]="isDisabled()">
             <mat-icon matSuffix>playlist_add</mat-icon>
           </mat-form-field>
         </mat-card-content>
       </mat-card>
-      <mat-card>
+      <mat-card class="clear">
         <mat-card-content id="todo-list">
-          <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)">
-            <mat-list-option *ngFor="let todo of todos" cdkDrag>
-              {{todo}}
+          <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)"
+            (selectionChange)="onChange($event)">
+            <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo"
+              [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed">
+              {{todo.value}}
             </mat-list-option>
           </mat-selection-list>
         </mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions class="center">
           <span class="info">
             {{todos.length}} item(s) left
           </span>
           <span class="center">
-            <button mat-button>All</button>
-            <button mat-button>Active</button>
-            <button mat-button>Completed</button>
+            <mat-button-toggle-group name="todoList" aria-label="Todo List" value="all" class="center">
+              <mat-button-toggle value="all">All</mat-button-toggle>
+              <mat-button-toggle value="active">Active</mat-button-toggle>
+              <mat-button-toggle value="completed">Completed</mat-button-toggle>
+            </mat-button-toggle-group>
           </span>
-          <span>
-            <button mat-button>Clear Completed</button>
+          <span class="end">
+            <button (click)="clearCompleted()" mat-button>Clear Completed</button>
           </span>
         </mat-card-actions>
       </mat-card>
     </section>
+    <p class="center">Drag and drop to reorder list</p>
   </article>
 </main>
