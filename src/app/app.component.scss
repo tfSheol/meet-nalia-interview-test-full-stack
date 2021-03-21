@@ -11,6 +11,13 @@
 
 @media (min-width: 737px) {
     main {
+        color: hsl(0, 0%, 98%);
+        color: hsl(236, 33%, 92%);
+        color: hsl(233, 11%, 84%);
+        color: hsl(236, 9%, 61%);
+        color: hsl(235, 19%, 35%);
+        // ----
+        color: hsl(0, 0%, 98%);
         padding-top: 50px;
         font-size: 18px;
         min-height: 100%;
@@ -26,21 +33,7 @@
         - Dark Grayish Blue: hsl(236, 9%, 61%)
         - Very Dark Grayish Blue: hsl(235, 19%, 35%)
         */
-    }
 
-    .dark-mode {
-        color: hsl(234, 39%, 85%);
-        background: url("/assets/background/bg-desktop-dark.jpg") no-repeat top hsl(235, 21%, 11%);
-        // background-image: url("../../media/examples/lizard.png");
-        /*
-        - Very Dark Blue: hsl(235, 21%, 11%)
-        - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
-        - Light Grayish Blue: hsl(234, 39%, 85%)
-        - Light Grayish Blue (hover): hsl(236, 33%, 92%)
-        - Dark Grayish Blue: hsl(234, 11%, 52%)
-        - Very Dark Grayish Blue: hsl(233, 14%, 35%)
-        - Very Dark Grayish Blue: hsl(237, 14%, 26%)
-        */
     }
 
     article {
@@ -48,6 +41,29 @@
         margin-right: auto;
         width: 700px;
     }
+}
+
+.dark-mode {
+    color: hsl(235, 21%, 11%);
+    color: hsl(235, 24%, 19%);
+    color: hsl(234, 39%, 85%);
+    color: hsl(236, 33%, 92%);
+    color: hsl(234, 11%, 52%);
+    color: hsl(233, 14%, 35%);
+    color: hsl(237, 14%, 26%);
+// ----
+    color: hsl(236, 33%, 92%);
+    background: url("/assets/background/bg-desktop-dark.jpg") no-repeat top hsl(235, 21%, 11%);
+    // background-image: url("../../media/examples/lizard.png");
+    /*
+    - Very Dark Blue: hsl(235, 21%, 11%)
+    - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+    - Light Grayish Blue: hsl(234, 39%, 85%)
+    - Light Grayish Blue (hover): hsl(236, 33%, 92%)
+    - Dark Grayish Blue: hsl(234, 11%, 52%)
+    - Very Dark Grayish Blue: hsl(233, 14%, 35%)
+    - Very Dark Grayish Blue: hsl(237, 14%, 26%)
+    */
 }
 
 section mat-card {
@@ -69,6 +85,7 @@ section .input-create-todo mat-form-field {
 
 .completed {
     text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
 }
 
 .center {
@@ -79,16 +96,69 @@ section .input-create-todo mat-form-field {
     text-align: end;
 }
 
-.mat-pseudo-checkbox {
-    border-radius: 10px !important;
-}
+:host {
+    ::ng-deep {
+        .mat-pseudo-checkbox {
+            border-radius: 15px;
+            width: 24px;
+            height: 24px;
+            border: 1px solid hsl(236, 33%, 92%);
+        }
 
-.mat-pseudo-checkbox-checked::after {
-    border-radius: 10px !important;
-}
+        .mat-pseudo-checkbox-checked {
+            border-radius: 15px;
+            background: linear-gradient(0.30turn, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            border: 0px;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .mat-checkbox-inner-container {
+            width: 30px;height: 30px;
+        }
+        
+        .mat-pseudo-checkbox-checked::after {
+            top: 7px;
+            left: 6px;
+            width: 10px;
+            height: 4px;
+        }
 
-.mat-list-item-content:current {
-    cursor: move;
+        .mat-selection-list {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mat-card-actions {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mat-card-content {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mat-button-toggle-group {
+            overflow: hidden;
+            border: 0px;
+        }
+
+        .mat-badge-content {
+            z-index: 1;
+            overflow: visible;
+            position: absolute;
+        }
+
+        .mat-button-toggle-checked {
+            color: hsl(235, 67%, 53%);
+            background-color: transparent;
+        }
+        
+        .mat-list-item-content:focus {
+            cursor: move;
+        }
+    }
 }
 
 .clear {
@@ -97,9 +167,17 @@ section .input-create-todo mat-form-field {
 }
 
 .bottom-border {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid hsl(236, 33%, 92%);
 }
 
 .bottom-border:nth-child {
     height: 500px;
+}
+
+.shadow-mode-switcher-sun {
+    background-image: url("/assets/icon/icon-sun.svg");
+}
+
+.shadow-mode-switcher-moon {
+    background-image: url("/assets/icon/icon-moon.svg");
 }
