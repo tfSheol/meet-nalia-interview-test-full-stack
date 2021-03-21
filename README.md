@@ -36,3 +36,19 @@
   - [ ] Delete a news
   - [ ] Delete a news id list
 - [ ] Implement swagger 3.0
+
+# Install
+
+## Frontend
+
+```bash
+$ cd frontend
+$ npm install
+```
+
+## Backend
+
+```bash
+$ cd backend
+$ npm install
+```

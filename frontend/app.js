@@ -91,7 +91,7 @@ app.on('ready', () => {
             enableWebSQL: false,
             nativeWindowOpen: true
         },
-        backgroundColor: '#312450',
+        // backgroundColor: '#312450',
         frame: false
     });
     window.setMenuBarVisibility(false);
