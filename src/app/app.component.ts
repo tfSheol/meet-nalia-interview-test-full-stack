@@ -17,7 +17,7 @@ declare interface Todo {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private static NB_MAX_TODOS = 10;
+  private static NB_MAX_TODOS = 50;
   public static NB_MAX_LENGTH = 100;
   public darkMode: boolean = false;
   public createTodo: string = '';

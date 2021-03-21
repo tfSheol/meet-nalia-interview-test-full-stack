@@ -88,10 +88,6 @@ section .input-create-todo mat-form-field {
     color: hsl(233, 11%, 84%);
 }
 
-.center {
-    text-align: center;
-}
-
 .end {
     text-align: end;
 }
@@ -172,6 +168,28 @@ section .input-create-todo mat-form-field {
 
 .bottom-border:nth-child {
     height: 500px;
+}
+
+.toolbar {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.toolbar .info {
+    flex-grow: 1;
+    vertical-align: bottom;
+}
+
+.toolbar .center {
+    flex-grow: 2;
+    align-items: center;
+    text-align: center;
+}
+
+.toolbar .end {
+    text-align: center;
+    flex-grow: 1;
 }
 
 .shadow-mode-switcher-sun {
