@@ -48,8 +48,8 @@ export class TodoService {
     }, todo);
   }
 
-  remove(id: string): Promise<DeleteResult> {
-    return this.todoRepository.delete(id);
+  remove(uuid: string): Promise<DeleteResult> {
+    return this.todoRepository.delete(uuid);
   }
 
   async removeCompleted(): Promise<DeleteResult> {

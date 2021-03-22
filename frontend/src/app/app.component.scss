@@ -126,6 +126,10 @@
         .mat-list-item-content:focus {
             cursor: move;
         }
+
+        .mat-list-item:hover .item .tools {
+            visibility: visible;
+        }
     }
 }
 
@@ -188,6 +192,30 @@ section .input-create-todo mat-form-field {
 .toolbar .end {
     text-align: center;
     flex-grow: 1;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item .info {
+    flex-grow: 2;
+}
+
+.item .tools {
+    flex-grow: 1;
+    text-align: end;
+    visibility: hidden;
+}
+
+.center {
+    color: hsl(235, 19%, 35%);
+    text-align: center;
+}
+
+.dark-mode .center {
+    color: hsl(236, 33%, 92%);
 }
 
 .shadow-mode-switcher-sun {

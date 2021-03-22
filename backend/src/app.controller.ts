@@ -18,7 +18,7 @@ export class AppController {
   }
 
   @Patch('/completed/:uuid')
-  updateTodo(@Param('uuid') uuid: string): Promise<UpdateResult> {
+  updateTodoStatus(@Param('uuid') uuid: string): Promise<UpdateResult> {
     return this.todoService.updateStatus(uuid);
   }
 
@@ -30,5 +30,10 @@ export class AppController {
   @Delete()
   removeCompleted(): Promise<DeleteResult> {
     return this.todoService.removeCompleted();
+  }
+
+  @Delete(':uuid')
+  removeItem(@Param('uuid') uuid: string): Promise<DeleteResult> {
+    return this.todoService.remove(uuid);
   }
 }

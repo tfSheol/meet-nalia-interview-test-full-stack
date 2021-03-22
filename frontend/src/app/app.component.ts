@@ -75,7 +75,8 @@ export class AppComponent implements OnInit, OnDestroy {
           value: inputTodo.value,
           completed: false
         };
-        this.subscriptions.push(this.todoService.addTodo(todo).subscribe(() => {
+        this.subscriptions.push(this.todoService.addTodo(todo).subscribe(result => {
+          todo.uuid = result?.identifiers[0]?.uuid;
           this.todos.push(todo);
           inputTodo.value = '';
         }, error => {
@@ -88,11 +89,21 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public onCheckedChange(change: any) {
     this.subscriptions.push(this.todoService.updateTodoStatus(change.option.value.uuid).subscribe(() => {
+      console.log(change);
       change.option.value.completed = change.option.selected;
     }, error => {
       console.log(error);
       this.openSnackBar(`Error: ${error.message}`);
     }))
+  }
+
+  public deleteItem(uuid: string) {
+    this.subscriptions.push(this.todoService.deleteTodo(uuid).subscribe(() => {
+      this.todos = this.todos.filter((todo: Todo) => todo.uuid !== uuid);
+    }, error => {
+      console.log(error);
+      this.openSnackBar(`Error: ${error.message}`);
+    }));
   }
 
   public clearCompleted() {

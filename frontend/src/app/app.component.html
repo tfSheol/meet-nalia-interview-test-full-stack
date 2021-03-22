@@ -16,10 +16,10 @@
       <mat-card class="mat-elevation-z24 clear">
         <mat-card-content id="todo-list">
           <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)"
-            (selectionChange)="onCheckedChange($event)">
+            (selectionChange)="onCheckedChange($event)" click-stop-propagation>
             <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo"
-              [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed">
-              {{todo.value}}
+              [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed" click-stop-propagation>
+              <div class="item"><span class="info">{{todo.value}}</span><span class="tools"><button (click)="deleteItem(todo.uuid); $event.stopPropagation()" mat-button><mat-icon matSuffix>clear</mat-icon></button></span></div>
             </mat-list-option>
           </mat-selection-list>
         </mat-card-content>
