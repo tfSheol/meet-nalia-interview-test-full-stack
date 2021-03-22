@@ -2,7 +2,7 @@
 
 set -e
 
-plateform="linux/amd64,linux/arm64,linux/arm/v7"
+plateform="linux/amd64,linux/arm64"
 image_name="ghcr.io/tfsheol/simple-todo"
 
 cd ../frontend
