@@ -37,13 +37,14 @@
   - [ ] Delete a todo id list
 - [x] Implement swagger 3.0
 
-# Install
+# Launch
 
 ## Frontend
 
 ```bash
 $ cd frontend
 $ npm install
+$ npm run start
 ```
 
 ## Backend
@@ -51,4 +52,5 @@ $ npm install
 ```bash
 $ cd backend
 $ npm install
+$ npm run start
 ```
