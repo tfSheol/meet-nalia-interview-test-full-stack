@@ -21,7 +21,17 @@ export class TodoService {
   }
 
   public updateTodoStatus(uuid: string): Observable<any> {
-    return this.http.patch(`${TodoService.API_TODO_PATH}/${uuid}`, null);
+    return this.http.patch(`${TodoService.API_TODO_PATH}/completed/${uuid}`, null);
+  }
+  
+  public updateTodoPosition(todos: Todo[]): Observable<any> {
+    let todo_with_position = Object.keys(todos).map((_, key: number,) => {
+      return <any>{
+        uuid: todos[key].uuid,
+        position: key
+      }
+    });
+    return this.http.patch(`${TodoService.API_TODO_PATH}/position`, todo_with_position);
   }
 
   public deleteTodo(uuid: string): Observable<any> {

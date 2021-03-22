@@ -55,7 +55,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public dragAndDrop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
-    console.log(event.currentIndex, event.item.data);
+    this.subscriptions.push(this.todoService.updateTodoPosition(this.todos).subscribe(() => {
+      console.log(event.currentIndex, event.item.data);
+    }, error => {
+      console.log(error);
+      this.openSnackBar(`Error: ${error.message}`);
+    }));
   }
 
   public isDisabled(): boolean {

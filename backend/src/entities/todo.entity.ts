@@ -1,5 +1,5 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, Generated } from 'typeorm';
 
 @Entity()
 export class Todo {
@@ -11,8 +11,11 @@ export class Todo {
   uuid: string;
 
   @Column()
+  position: number;
+
+  @Column()
   value: string;
 
   @Column({ default: false })
-  completed: boolean;
+  completed?: boolean;
 }

@@ -17,9 +17,14 @@ export class AppController {
     return this.todoService.addItem(todo);
   }
 
-  @Patch(':uuid')
+  @Patch('/completed/:uuid')
   updateTodo(@Param('uuid') uuid: string): Promise<UpdateResult> {
     return this.todoService.updateStatus(uuid);
+  }
+
+  @Patch('position')
+  updatePosition(@Body() todos: Todo[]): Promise<Todo[]> {
+    return this.todoService.updatePosition(todos);
   }
 
   @Delete()
