@@ -10,7 +10,7 @@
 
 - Frontend : [https://todo.teddyfontaine.fr](https://todo.teddyfontaine.fr)
 - API : [https://api-todo.teddyfontaine.fr](https://api-todo.teddyfontaine.fr)
-- Swagger : [https://api-todo.teddyfontaine.fr/doc/api](https://swagger-todo.teddyfontaine.fr/doc/api)
+- Swagger : [https://api-todo.teddyfontaine.fr/doc/api](https://api-todo.teddyfontaine.fr/doc/api)
 
 # Features
 
