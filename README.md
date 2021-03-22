@@ -16,7 +16,7 @@
 
 ## Client Side
 
-- [ ] Final design match ?
+- [x] Final design match ?
 - [x] Add new todos to the list
 - [x] Mark todos as complete
 - [x] Delete todos from the list
@@ -24,6 +24,7 @@
 - [x] Clear all completed todos
 - [x] See hover states for all interactive elements on the page
 - [x] **Bonus**: Toggle light and dark mode
+  - [ ] Not totaly implemented
 - [x] **Bonus**: Drag and drop to reorder items on the list
 
 ## Server Side
@@ -60,19 +61,29 @@ $ npm run start
 ## Frontend
 
 ```bash
-cd kube
-kubectl apply -f spa-deployment.yaml
+$ cd kube
+$ kubectl apply -f spa-deployment.yaml
 
 # or force replace
-kubectl replace -f spa-deployment.yaml --force
+$ kubectl replace -f spa-deployment.yaml --force
 ```
 
 ## Backend
 
 ```bash
-cd kube
-kubectl apply -f api-deployment.yaml
+$ cd kube
+$ kubectl apply -f api-deployment.yaml
 
 # or force replace
-kubectl replace -f api-deployment.yaml --force
+$ kubectl replace -f api-deployment.yaml --force
+```
+
+# Fix
+
+## Sqlite3 for arm
+
+This cmd line force install sqlite3 for arm arch, but is not work...
+
+```bash
+$ npm install sqlite3 --target_arch=arm --target_platform=linux --target=0.12.7
 ```

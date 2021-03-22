@@ -3,10 +3,11 @@ FROM node:latest
 LABEL maintainer="Teddy Fontaine"
 LABEL org.opencontainers.image.source https://github.com/tfSheol/meet-nalia-interview-test-full-stack
 
-COPY dist/ /app
-COPY package.json /app
-COPY package-lock.json /app
-
 WORKDIR /app
 
-CMD [ "npm install && node", "main.js" ]
+COPY dist/ .
+COPY package.json .
+COPY package-lock.json .
+COPY node_modules/ ./node_modules
+
+ENTRYPOINT [ "node", "main.js" ]

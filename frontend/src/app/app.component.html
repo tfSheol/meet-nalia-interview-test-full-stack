@@ -1,15 +1,21 @@
 <main [class.dark-mode]="darkMode">
   <article>
-    <h1>TODO</h1>
-    <button (click)='switchDarkMode()' mat-button>Dark mode</button>
+    <div class="top">
+      <h1 class="title">TODO</h1>
+      <button (click)='switchDarkMode()' mat-button>
+        <img *ngIf='!darkMode' src="/assets/icon/icon-moon.svg"/>
+        <img *ngIf='darkMode' src="/assets/icon/icon-sun.svg"/>
+      </button>
+    </div>
     <section>
       <mat-card class="mat-elevation-z24 input-create-todo">
         <mat-card-content>
           <mat-form-field appearance="outline" floatLabel="never">
             <mat-label>Create a new todo...</mat-label>
-            <input matInput #reference (keydown.enter)="addNewTodo(reference)"
-              [disabled]="isDisabled()">
-            <mat-icon matSuffix>playlist_add</mat-icon>
+            <input matInput #reference (keydown.enter)="addNewTodo(reference)" [disabled]="isDisabled()">
+            <span matPrefix>
+              <mat-checkbox class="example-margin" [disabled]="true"></mat-checkbox>
+            </span>
           </mat-form-field>
         </mat-card-content>
       </mat-card>
@@ -17,9 +23,13 @@
         <mat-card-content id="todo-list">
           <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)"
             (selectionChange)="onCheckedChange($event)" click-stop-propagation>
-            <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of getFilteredTodos()" cdkDrag [cdkDragData]="todo"
-              [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed" click-stop-propagation>
-              <div class="item"><span class="info">{{todo.value}}</span><span class="tools"><button (click)="deleteItem(todo.uuid); $event.stopPropagation()" mat-button><mat-icon matSuffix>clear</mat-icon></button></span></div>
+            <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of getFilteredTodos()"
+              cdkDrag [cdkDragData]="todo" [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed"
+              click-stop-propagation>
+              <div class="item"><span class="info">{{todo.value}}</span><span class="tools"><button
+                    (click)="deleteItem(todo.uuid); $event.stopPropagation()" mat-button>
+                    <mat-icon matSuffix>clear</mat-icon>
+                  </button></span></div>
             </mat-list-option>
           </mat-selection-list>
         </mat-card-content>
@@ -28,7 +38,8 @@
             {{getItemsLeft()}} item(s) left
           </div>
           <div class="center">
-            <mat-button-toggle-group name="toolbar" [formControl]="toolbarControl" aria-label="Todo List" value="all" class="center">
+            <mat-button-toggle-group name="toolbar" [formControl]="toolbarControl" aria-label="Todo List" value="all"
+              class="center">
               <mat-button-toggle value="all">All</mat-button-toggle>
               <mat-button-toggle value="active">Active</mat-button-toggle>
               <mat-button-toggle value="completed">Completed</mat-button-toggle>
@@ -40,6 +51,6 @@
         </mat-card-actions>
       </mat-card>
     </section>
-    <p class="center">Drag and drop to reorder list</p>
+    <p class="center-bottom-info">Drag and drop to reorder list</p>
   </article>
 </main>
