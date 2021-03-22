@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-todo
+  name: simple-todo-api
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: simple-todo
+      app: simple-todo-api
   template:
     metadata:
       labels:
-        app: simple-todo
+        app: simple-todo-api
     spec:
       containers:
-        - name: simple-todo-container
-          image: ghcr.io/tfsheol/simple-todo:latest
+        - name: simple-todo-api-container
+          image: ghcr.io/tfsheol/simple-todo-backend:latest
           resources:
             requests:
               memory: "64Mi"
@@ -26,22 +26,22 @@ spec:
               cpu: "500m"
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: simple-todo
-  name: simple-todo-service
+    app: simple-todo-api
+  name: simple-todo-api-service
 spec:
   type: ClusterIP
   ports:
     - name: web
-      port: 80
+      port: 3000
       protocol: TCP
   selector:
-    app: simple-todo
+    app: simple-todo-api
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -55,17 +55,17 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
   labels:
-    app: simple-todo
-  name: simple-todo-ingress
+    app: simple-todo-api
+  name: simple-todo-api-ingress
   namespace: default
 spec:
   rules:
-    - host: todo.teddyfontaine.fr
+    - host: api-todo.teddyfontaine.fr
       http:
         paths:
           - backend:
               service:
-                name: simple-todo-service
+                name: simple-todo-api-service
                 port:
                   number: 80
             path: /

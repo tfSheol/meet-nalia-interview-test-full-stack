@@ -10,7 +10,7 @@
 
 - Frontend : [https://todo.teddyfontaine.fr](https://todo.teddyfontaine.fr)
 - API : [https://api-todo.teddyfontaine.fr](https://api-todo.teddyfontaine.fr)
-- Swagger : [https://swagger-todo.teddyfontaine.fr/doc/api](https://swagger-todo.teddyfontaine.fr/doc/api)
+- Swagger : [https://api-todo.teddyfontaine.fr/doc/api](https://swagger-todo.teddyfontaine.fr/doc/api)
 
 # Features
 
@@ -53,4 +53,26 @@ $ npm run start
 $ cd backend
 $ npm install
 $ npm run start
+```
+
+# Deployment with kubernetes
+
+## Frontend
+
+```bash
+cd kube
+kubectl apply -f spa-deployment.yaml
+
+# or force replace
+kubectl replace -f spa-deployment.yaml --force
+```
+
+## Backend
+
+```bash
+cd kube
+kubectl apply -f api-deployment.yaml
+
+# or force replace
+kubectl replace -f api-deployment.yaml --force
 ```
