@@ -6,9 +6,9 @@ import { TodoService } from './services/todo.service';
 import { FormControl, Validators } from '@angular/forms';
 
 declare interface Todo {
+  uuid?: string,
   value: string,
-  completed: boolean,
-  time?: number
+  completed: boolean
 }
 
 @Component({
@@ -29,20 +29,10 @@ export class AppComponent implements OnInit {
 
   constructor(
     private electronService: ElectronService,
-    private dbService: DbService,
     private todoService: TodoService
   ) { }
 
-  ngOnInit() {    
-    // this.dbService.connect();
-
-    // this.electronService.setMenuIdListener('test:sub:1', () => {
-    //   console.log('test menu item custom listener test:sub:1');
-    // });
-
-    // this.electronService.setMenuIdListener('test:sub:2', () => {
-    //   console.log('click on test:sub:2');
-    // });
+  ngOnInit() {
   }
 
   public switchDarkMode(): void {

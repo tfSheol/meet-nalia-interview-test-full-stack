@@ -1,12 +1,29 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { DeleteResult, InsertResult, UpdateResult } from 'typeorm';
+import { Todo } from './entities/todo.entity';
+import { TodoService } from './services/todo.service';
 
-@Controller()
+@Controller('todo')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly todoService: TodoService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getAllTodos(): Promise<Todo[]> {
+    return this.todoService.findAll();
+  }
+
+  @Post()
+  addTodo(@Body() todo: Todo): Promise<InsertResult> {
+    return this.todoService.addItem(todo);
+  }
+
+  @Patch(':uuid')
+  updateTodo(@Param('uuid') uuid: string): Promise<UpdateResult> {
+    return this.todoService.updateStatus(uuid);
+  }
+
+  @Delete()
+  removeCompleted(): Promise<DeleteResult> {
+    return this.todoService.removeCompleted();
   }
 }

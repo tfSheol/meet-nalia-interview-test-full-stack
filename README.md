@@ -30,12 +30,12 @@
 
 - [ ] Design a simple API for persisting state on the server side
 - [ ] Implement routes for all listed **CRUD** operations
-  - [ ] Create a news
-  - [ ] Read all news
-  - [ ] Update a news
-  - [ ] Delete a news
-  - [ ] Delete a news id list
-- [ ] Implement swagger 3.0
+  - [ ] Create a todo
+  - [x] Read all todo
+  - [ ] Update a todo
+  - [ ] Delete a todo
+  - [ ] Delete a todo id list
+- [x] Implement swagger 3.0
 
 # Install
 
