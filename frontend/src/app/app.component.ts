@@ -5,6 +5,7 @@ import { TodoService } from './services/todo.service';
 import { Todo } from './services/entities/todo';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private static NB_MAX_TODOS = 50;
-  public static NB_MAX_LENGTH = 80;
-  public static NB_MIN_LENGTH = 5;
+  public static NB_MAX_LENGTH = 100;
+  public static NB_MIN_LENGTH = 3;
+  public toolbarControl = new FormControl();
   public darkMode: boolean = false;
   public createTodo: string = '';
   public todos: Todo[] = [];
@@ -27,10 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.toolbarControl.setValue('all');
     this.getAllNews();
   }
 
-  private getAllNews() {
+  private getAllNews(): void {
     this.subscriptions.push(this.todoService.getAllTodos().subscribe(todos => {
       this.todos = todos
     }, error => {
@@ -87,7 +90,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onCheckedChange(change: any) {
+  public onCheckedChange(change: any): void {
     this.subscriptions.push(this.todoService.updateTodoStatus(change.option.value.uuid).subscribe(() => {
       console.log(change);
       change.option.value.completed = change.option.selected;
@@ -97,7 +100,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }))
   }
 
-  public deleteItem(uuid: string) {
+  public deleteItem(uuid: string): void {
     this.subscriptions.push(this.todoService.deleteTodo(uuid).subscribe(() => {
       this.todos = this.todos.filter((todo: Todo) => todo.uuid !== uuid);
     }, error => {
@@ -106,7 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }));
   }
 
-  public clearCompleted() {
+  public clearCompleted(): void {
     this.subscriptions.push(this.todoService.deleteAllCompletedTodos().subscribe(() => {
       this.todos = this.todos.filter((todo: Todo) => !todo.completed);
     }, error => {
@@ -115,7 +118,20 @@ export class AppComponent implements OnInit, OnDestroy {
     }));
   }
 
-  public openSnackBar(message: string) {
+  public getItemsLeft(): number {
+    return this.todos.filter(todo => !todo.completed).length;
+  }
+
+  public getFilteredTodos(): Todo[] {
+    if (this.toolbarControl.value === "active") {
+      return [...this.todos.filter(todo => !todo.completed)];
+    } else if (this.toolbarControl.value === "completed") {
+      return [...this.todos.filter(todo => todo.completed)];
+    }
+    return this.todos;
+  }
+
+  public openSnackBar(message: string): void {
     this.snackBarService.open(message, "close", {
       duration: 2000,
     });

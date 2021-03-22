@@ -7,7 +7,7 @@
         <mat-card-content>
           <mat-form-field appearance="outline" floatLabel="never">
             <mat-label>Create a new todo...</mat-label>
-            <input matInput #reference formControlName="inputTodoFormControl" (keydown.enter)="addNewTodo(reference)"
+            <input matInput #reference (keydown.enter)="addNewTodo(reference)"
               [disabled]="isDisabled()">
             <mat-icon matSuffix>playlist_add</mat-icon>
           </mat-form-field>
@@ -17,7 +17,7 @@
         <mat-card-content id="todo-list">
           <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)"
             (selectionChange)="onCheckedChange($event)" click-stop-propagation>
-            <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo"
+            <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of getFilteredTodos()" cdkDrag [cdkDragData]="todo"
               [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed" click-stop-propagation>
               <div class="item"><span class="info">{{todo.value}}</span><span class="tools"><button (click)="deleteItem(todo.uuid); $event.stopPropagation()" mat-button><mat-icon matSuffix>clear</mat-icon></button></span></div>
             </mat-list-option>
@@ -25,10 +25,10 @@
         </mat-card-content>
         <mat-card-actions class="toolbar">
           <div class="info">
-            {{todos.length}} item(s) left
+            {{getItemsLeft()}} item(s) left
           </div>
           <div class="center">
-            <mat-button-toggle-group name="todoList" aria-label="Todo List" value="all" class="center">
+            <mat-button-toggle-group name="toolbar" [formControl]="toolbarControl" aria-label="Todo List" value="all" class="center">
               <mat-button-toggle value="all">All</mat-button-toggle>
               <mat-button-toggle value="active">Active</mat-button-toggle>
               <mat-button-toggle value="completed">Completed</mat-button-toggle>

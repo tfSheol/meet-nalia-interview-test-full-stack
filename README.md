@@ -20,7 +20,7 @@
 - [x] Add new todos to the list
 - [x] Mark todos as complete
 - [x] Delete todos from the list
-- [ ] Filter by all/active/complete todos
+- [x] Filter by all/active/complete todos
 - [x] Clear all completed todos
 - [x] See hover states for all interactive elements on the page
 - [x] **Bonus**: Toggle light and dark mode
