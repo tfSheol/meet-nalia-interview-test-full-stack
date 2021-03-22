@@ -10,7 +10,7 @@
 
 - Frontend : [https://todo.teddyfontaine.fr](https://todo.teddyfontaine.fr)
 - API : [https://api-todo.teddyfontaine.fr](https://api-todo.teddyfontaine.fr)
-- Swagger : [https://swagger-todo.teddyfontaine.fr](https://swagger-todo.teddyfontaine.fr)
+- Swagger : [https://swagger-todo.teddyfontaine.fr/doc/api](https://swagger-todo.teddyfontaine.fr/doc/api)
 
 # Features
 
@@ -28,13 +28,13 @@
 
 ## Server Side
 
-- [ ] Design a simple API for persisting state on the server side
-- [ ] Implement routes for all listed **CRUD** operations
-  - [ ] Create a todo
+- [x] Design a simple API for persisting state on the server side
+- [x] Implement routes for all listed **CRUD** operations
+  - [x] Create a todo
   - [x] Read all todo
-  - [ ] Update a todo
-  - [ ] Delete a todo
-  - [ ] Delete a todo id list
+  - [x] Update a todo
+  - [x] Delete a todo
+  - [x] Delete a todo id list
 - [x] Implement swagger 3.0
 
 # Launch

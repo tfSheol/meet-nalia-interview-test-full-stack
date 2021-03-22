@@ -16,7 +16,7 @@
       <mat-card class="mat-elevation-z24 clear">
         <mat-card-content id="todo-list">
           <mat-selection-list cdkDropList (cdkDropListDropped)="dragAndDrop($event)"
-            (selectionChange)="onChange($event)">
+            (selectionChange)="onCheckedChange($event)">
             <mat-list-option class="bottom-border" checkboxPosition="before" *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo"
               [selected]="todo.completed" [value]="todo" [class.completed]="todo.completed">
               {{todo.value}}

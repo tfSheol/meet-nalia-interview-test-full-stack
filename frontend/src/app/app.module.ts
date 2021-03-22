@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
@@ -16,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
@@ -35,7 +38,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

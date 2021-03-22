@@ -23,8 +23,6 @@
         min-height: 100%;
         max-height: max-content;
         font-family: Roboto, "Helvetica Neue", sans-serif;
-        // background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-        // background-color: hsl(220, 98%, 61%);
         background: url("/assets/background/bg-desktop-light.jpg") no-repeat top;
         /*
         - Very Light Gray: hsl(0, 0%, 98%)
@@ -64,32 +62,6 @@
     - Very Dark Grayish Blue: hsl(233, 14%, 35%)
     - Very Dark Grayish Blue: hsl(237, 14%, 26%)
     */
-}
-
-section mat-card {
-    margin-bottom: 40px;
-}
-
-section .input-create-todo {
-    padding: 0;
-}
-
-section .input-create-todo mat-form-field {
-    width: 100%;
-    margin: 0;
-}
-
-.mat-form-field-wrapper {
-    padding: 0;
-}
-
-.completed {
-    text-decoration: line-through;
-    color: hsl(233, 11%, 84%);
-}
-
-.end {
-    text-align: end;
 }
 
 :host {
@@ -155,6 +127,32 @@ section .input-create-todo mat-form-field {
             cursor: move;
         }
     }
+}
+
+section mat-card {
+    margin-bottom: 40px;
+}
+
+section .input-create-todo {
+    padding: 0;
+}
+
+section .input-create-todo mat-form-field {
+    width: 100%;
+    margin: 0;
+}
+
+.mat-form-field-wrapper {
+    padding: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+}
+
+.end {
+    text-align: end;
 }
 
 .clear {
